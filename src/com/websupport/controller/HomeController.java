@@ -46,7 +46,9 @@ public class HomeController {
     public AjaxObject  doUpload(MultipartFile myfile,HttpServletRequest request){
         AjaxObject ajaxObject=new AjaxObject();
         try {
+            //TODO:下面这行代码在jboss5.1中会报错（java.lang.NoSuchMethodError: javax.servlet.http.HttpServletRequest.getServletContext()Ljavax/s），所以这里需要替换掉
             String uploadPath=WebUtils.getRealPath(request.getServletContext(),"upload");
+
             FileUtils.forceMkdir(new File(uploadPath));
             FileOutputStream fos=new FileOutputStream(uploadPath+ File.separator+myfile.getOriginalFilename());
             FileCopyUtils.copy(myfile.getInputStream(),fos);
