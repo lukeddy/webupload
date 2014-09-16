@@ -1,5 +1,6 @@
 package com.websupport.controller;
 
+import com.websupport.util.AjaxObject;
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
@@ -8,6 +9,7 @@ import org.springframework.ui.Model;
 import org.springframework.util.FileCopyUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.util.WebUtils;
 
@@ -40,19 +42,23 @@ public class HomeController {
 
 
     @RequestMapping(value="/doupload")
-    public String doUpload(MultipartFile myfile,HttpServletRequest request){
+    @ResponseBody
+    public AjaxObject  doUpload(MultipartFile myfile,HttpServletRequest request){
+        AjaxObject ajaxObject=new AjaxObject();
         try {
             String uploadPath=WebUtils.getRealPath(request.getServletContext(),"upload");
             FileUtils.forceMkdir(new File(uploadPath));
             FileOutputStream fos=new FileOutputStream(uploadPath+ File.separator+myfile.getOriginalFilename());
             FileCopyUtils.copy(myfile.getInputStream(),fos);
-        } catch (FileNotFoundException e) {
+            ajaxObject.setStatus(Boolean.TRUE);
+            ajaxObject.setMsg("Successfully uploaded file:"+ myfile.getOriginalFilename());
+        } catch (Exception e) {
+            ajaxObject.setStatus(Boolean.FALSE);
+            ajaxObject.setMsg("Failed to uploaded file:"+ myfile.getOriginalFilename());
             logger.error("upload file error:" + e);
-            e.printStackTrace();
-        } catch (IOException e) {
-            logger.error("upload file error:" + e);
-            e.printStackTrace();
+            //e.printStackTrace();
         }
-        return "dashboard";
+
+        return ajaxObject;
     }
 }

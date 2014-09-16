@@ -8,64 +8,6 @@
     <!--引入webuploader JS-->
     <script type="text/javascript" src="${contextPath}/js/webuploader/webuploader.js"></script>
     <title>File Upload</title>
-    <%--<style>--%>
-        <%--.dark {--%>
-            <%--background-color: #0A0A0A;--%>
-            <%--color: #CCC;--%>
-        <%--}--%>
-
-        <%--.data-column {--%>
-            <%--padding: 0px;--%>
-        <%--}--%>
-
-        <%--.data-column .row {--%>
-            <%--height: 24%;--%>
-            <%--border: 1px solid #CCC;--%>
-            <%--font-size: 80px;--%>
-        <%--}--%>
-
-        <%--.total-user-title {--%>
-            <%--border-right: 6px solid #88BBC8 !important;--%>
-            <%--font-size: 60px !important;--%>
-        <%--}--%>
-
-        <%--.new-user-title {--%>
-            <%--border-right: 6px solid #ED8662 !important;--%>
-            <%--font-size: 60px !important;--%>
-        <%--}--%>
-
-        <%--.old-user-title {--%>
-            <%--border-right: 6px solid #BEEB9F !important;--%>
-            <%--font-size: 60px !important;--%>
-        <%--}--%>
-
-        <%--ul.switch-time-box {--%>
-            <%--list-style-type: none;--%>
-            <%--font-size: 16px;--%>
-            <%--padding: 0px;--%>
-        <%--}--%>
-
-        <%--ul.switch-time-box li {--%>
-            <%--display: inline-block;--%>
-        <%--}--%>
-
-        <%--ul.switch-time-box li a {--%>
-            <%--height: 39px;--%>
-            <%--width: 76px;--%>
-            <%--padding: 8px 6px;--%>
-            <%--font-size: 12px;--%>
-            <%--line-height: 1.5;--%>
-            <%--border-radius: 3px;--%>
-            <%--margin-right: 5px;--%>
-            <%--border: 1px solid #282828;--%>
-            <%--background: #181818;--%>
-            <%--color: #d0d0d0;--%>
-        <%--}--%>
-
-        <%--ul.switch-time-box li a:hover, ul.switch-time-box li a.selected {--%>
-            <%--background: #666;--%>
-        <%--}--%>
-    <%--</style>--%>
 </head>
 <body class="dark">
 <div class="wrapper">
@@ -77,7 +19,7 @@
         <div class="row">
             <div id="uploaderbox">
                 <!--用来存放文件信息-->
-                <table class="table text-center" id="thelist">
+                <table class="table table-striped text-center" id="thelist">
                     <tr><td>文件名</td><td>状态</td></tr>
                 </table>
                 <div class="row">
@@ -115,7 +57,7 @@
     function initUploader(){
         // 当有文件被添加进队列的时候
         uploader.on( 'fileQueued', function( file ) {
-            $('#thelist').append(' <tr id="'+file.id+'"><td>'+file.name+'</td><td>等待上传...</td></tr>');
+            $('#thelist').append(' <tr id="'+file.id+'"><td>'+file.name+'</td><td><p class="state">等待上传...</p><p class="progress"><span class="progress-bar"></span></p></td></tr>');
         });
 
         // 文件上传过程中创建进度条实时显示。
@@ -146,6 +88,7 @@
 
         uploader.on( 'uploadComplete', function( file ) {
             $( '#'+file.id ).find('.progress').fadeOut();
+            //$( '#'+file.id).remove();
         });
     }
 
