@@ -26,7 +26,7 @@
       <file leaf-file-name="dashboard.jsp" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/WebRoot/WEB-INF/view/dashboard.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-0.56949806" vertical-offset="1920" max-vertical-offset="2650">
+            <state vertical-scroll-proportion="0.3243243" vertical-offset="1457" max-vertical-offset="2650">
               <caret line="65" column="67" selection-start-line="65" selection-start-column="67" selection-end-line="65" selection-end-column="67" />
               <folding>
                 <marker date="1410858318905" expanded="true" signature="2657:2666" placeholder="..." />
@@ -616,12 +616,12 @@
       <created>1410852899622</created>
       <updated>1410852899622</updated>
       <workItem from="1410852907792" duration="2864000" />
-      <workItem from="1410855863773" duration="2504000" />
+      <workItem from="1410855863773" duration="2919000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="5368000" />
+    <option name="totallyTimeSpent" value="5783000" />
   </component>
   <component name="TodoView" selected-index="0">
     <todo-panel id="selected-file">
@@ -882,7 +882,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/WebRoot/WEB-INF/view/dashboard.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.56949806" vertical-offset="1920" max-vertical-offset="2650">
+        <state vertical-scroll-proportion="0.3243243" vertical-offset="1457" max-vertical-offset="2650">
           <caret line="65" column="67" selection-start-line="65" selection-start-column="67" selection-end-line="65" selection-end-column="67" />
           <folding>
             <marker date="1410858318905" expanded="true" signature="2657:2666" placeholder="..." />
