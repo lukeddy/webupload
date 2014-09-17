@@ -24,9 +24,6 @@
         <div>
             <a href="javascript:void(0);" class="btn btn-primary" id="btnShowUploadDialog">Upload</a>
         </div>
-
-
-
         <div class="modal fade" id="dialogUpload">
             <div class="modal-dialog">
                 <form role="form" id="delForm" name="delForm" method="post" action="">
@@ -42,7 +39,7 @@
                                 <div class="row">
                                     <div id="uploaderbox">
                                         <!--用来存放文件信息-->
-                                        <table class="table table-striped text-center" id="thelist">
+                                        <table class="table table-striped" id="thelist">
                                             <tr><td>文件名</td><td>状态</td></tr>
                                         </table>
                                         <div class="row text-center">
@@ -57,8 +54,8 @@
                         <div class="modal-footer">
                             <fieldset id="delFormField">
                                 <div class="row" id="uploadTest_box">
-                                    <input type="text" name="uploadTest" id="uploadTest" disabled/>
-                                    <p id="uploadTest_value"></p>
+                                    <input type="text" name="uploadTest" id="uploadTest" class="col-md-12" placeholder="上传回显框" disabled/>
+                                    <p id="uploadTest_value" class="col-md-12"></p>
                                 </div>
                                 <div class="form-group">
                                     <a href="javascript:void(0);" id="uploadBtn" class="btn btn-default btn-block">开始上传</a>

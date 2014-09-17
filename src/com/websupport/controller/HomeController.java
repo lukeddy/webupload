@@ -30,23 +30,51 @@ public class HomeController {
 
     static Log logger = LogFactory.getLog(HomeController.class);
 
-
-    @RequestMapping(value="/main")
-    public String template(){
-        return "dashboard";
-    }
-    @RequestMapping(value="/main2")
-    public String template2(){
-        return "dashboard2";
-    }
-
+    /**
+     * 跳转到首页
+     * @return
+     */
     @RequestMapping(value="/index")
     public String index(){
         return "index";
     }
 
+    /**
+     * 跳转到弹出框上传页面
+     * @return
+     */
+    @RequestMapping(value="/dialog_upload")
+    public String template(){
+        return "dialog_upload";
+    }
+
+    /**
+     * 跳转到普通上传页面
+     * @return
+     */
+    @RequestMapping(value="/normal_upload")
+    public String template2(){
+        return "normal_upload";
+    }
+
+    /**
+     * 跳转到拖拽上传页面
+     * @return
+     */
+    @RequestMapping(value="/drag_upload")
+    public String drag_upload(){
+        return "drag_upload";
+    }
 
 
+
+
+    /**
+     * 处理上传
+     * @param image  上传数据封装对象
+     * @param request
+     * @return
+     */
     @RequestMapping(value="/doupload")
     @ResponseBody
     public AjaxObject  doUpload(Image image,HttpServletRequest request){
@@ -73,4 +101,12 @@ public class HomeController {
 
         return ajaxObject;
     }
+
+//    @RequestMapping(value="/preview")
+//    @ResponseBody
+//    public AjaxObject  preview(Image image,HttpServletRequest request){
+//
+//
+//    }
+
 }

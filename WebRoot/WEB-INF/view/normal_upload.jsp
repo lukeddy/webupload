@@ -19,13 +19,14 @@
         <div class="row">
             <div id="uploaderbox">
                 <!--用来存放文件信息-->
-                <table class="table table-striped text-center" id="thelist">
+                <table class="table table-striped" id="thelist">
                     <tr><td>文件名</td><td>状态</td></tr>
                 </table>
                 <div class="row">
                     <a href="javascript:void(0);" id="picker">选择文件</a>
                     <a href="javascript:void(0);" id="uploadBtn" class="btn btn-default col-md-6">开始上传</a>
                 </div>
+                <div class="row" id="resultBox"></div>
             </div>
         </div>
     </div>
@@ -79,8 +80,9 @@
             $percent.css( 'width', percentage * 100 + '%' );
         });
 
-        uploader.on( 'uploadSuccess', function( file ) {
+        uploader.on( 'uploadSuccess', function( file,response ) {
             $( '#'+file.id ).find('p.state').text('已上传');
+            showResult(response);
         });
 
         uploader.on( 'uploadError', function( file ) {
@@ -89,7 +91,6 @@
 
         uploader.on( 'uploadComplete', function( file ) {
             $( '#'+file.id ).find('.progress').fadeOut();
-            //$( '#'+file.id).remove();
         });
     }
 
@@ -97,5 +98,10 @@
         $('#uploadBtn').bind("click",function(){
             uploader.upload();
         });
+    }
+
+    function showResult(resp){
+        var img='<img src="http://'+resp.data.image+'" style="width:100px;height:100px;"/>';
+        $('#resultBox').append(img);
     }
 </script>
