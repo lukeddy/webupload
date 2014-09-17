@@ -1,6 +1,8 @@
 package com.websupport.controller;
 
 import com.websupport.util.AjaxObject;
+import com.websupport.util.Image;
+import com.websupport.util.PreviewImg;
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
@@ -33,6 +35,10 @@ public class HomeController {
     public String template(){
         return "dashboard";
     }
+    @RequestMapping(value="/main2")
+    public String template2(){
+        return "dashboard2";
+    }
 
     @RequestMapping(value="/index")
     public String index(){
@@ -43,20 +49,24 @@ public class HomeController {
 
     @RequestMapping(value="/doupload")
     @ResponseBody
-    public AjaxObject  doUpload(MultipartFile myfile,HttpServletRequest request){
+    public AjaxObject  doUpload(Image image,HttpServletRequest request){
         AjaxObject ajaxObject=new AjaxObject();
+        PreviewImg previewImg = new PreviewImg();
         try {
             //TODO:下面这行代码在jboss5.1中会报错（java.lang.NoSuchMethodError: javax.servlet.http.HttpServletRequest.getServletContext()Ljavax/s），所以这里需要替换掉
             String uploadPath=WebUtils.getRealPath(request.getServletContext(),"upload");
 
             FileUtils.forceMkdir(new File(uploadPath));
-            FileOutputStream fos=new FileOutputStream(uploadPath+ File.separator+myfile.getOriginalFilename());
-            FileCopyUtils.copy(myfile.getInputStream(),fos);
+            FileOutputStream fos=new FileOutputStream(uploadPath+ File.separator+image.getThumbFile().getOriginalFilename());
+            FileCopyUtils.copy(image.getThumbFile().getInputStream(),fos);
+            previewImg.setImagePath(image.getThumbFile().getOriginalFilename());
+            previewImg.setImage("localhost:8080/webupload/upload/"+image.getThumbFile().getOriginalFilename());
+            ajaxObject.setData(previewImg);
             ajaxObject.setStatus(Boolean.TRUE);
-            ajaxObject.setMsg("Successfully uploaded file:"+ myfile.getOriginalFilename());
+            ajaxObject.setMsg("Successfully uploaded file:"+ image.getThumbFile().getOriginalFilename());
         } catch (Exception e) {
             ajaxObject.setStatus(Boolean.FALSE);
-            ajaxObject.setMsg("Failed to uploaded file:"+ myfile.getOriginalFilename());
+            ajaxObject.setMsg("Failed to uploaded file:"+ image.getThumbFile().getOriginalFilename());
             logger.error("upload file error:" + e);
             //e.printStackTrace();
         }
