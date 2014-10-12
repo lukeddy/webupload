@@ -18,9 +18,10 @@
         <context:include-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
     </context:component-scan>
     <mvc:default-servlet-handler/>
-    <mvc:resources mapping="/images/**" location="/WEB-INF/assets/images/"/>
-    <mvc:resources mapping="/css/**" location="/WEB-INF/assets/css/"/>
-    <mvc:resources mapping="/js/**" location="/WEB-INF/assets/js/" />
+    <!-- js，css，img资源缓存一年 -->
+    <mvc:resources mapping="/images/**" location="/WEB-INF/assets/images/" cache-period="31536000"/>
+    <mvc:resources mapping="/css/**" location="/WEB-INF/assets/css/" cache-period="31536000"/>
+    <mvc:resources mapping="/js/**" location="/WEB-INF/assets/js/"  cache-period="31536000"/>
 
     <mvc:view-controller path="/" view-name="forward:/index"/>
 
