@@ -3,13 +3,13 @@
 web uploader上传组件文档地址：
 http://fex.baidu.com/webuploader/doc/index.html#WebUploader_Uploader_upload 
 
-使用技术：
+使用技术：  
 后台:Spring MVC,前台:jQuery,Bootstrap,Webuploader
 
-如何运行：
+如何运行：   
 使用JetBrains的Idea打开项目，配置一下Tomcat路径即可。其他IDE可能要稍作部署修改
 
-有图有真相,看效果图：
+有图有真相,看效果图：   
 普通上传效果图：
 ![](https://github.com/tzq668766/screenshots/blob/master/webupload_screenshots/upload_putong.jpg)
 
