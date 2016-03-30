@@ -1,0 +1,15 @@
+language: java
+jdk:
+  - openjdk7
+  - oraclejdk7
+  - oraclejdk8
+
+script: mvn -q install
+
+branches:
+  only:
+  - webupload_v2
+
+notifications:
+  email:
+  - 544301172@qq.com
