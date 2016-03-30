@@ -1,6 +1,6 @@
 webuploader示例版本2
 
-![](https://travis-ci.org/tzq668766/webupload.svg?branch=master)
+[![Build Status](https://travis-ci.org/tzq668766/webupload.svg?branch=webupload_v2)](https://travis-ci.org/tzq668766/webupload)
 
 技术栈： 
 后端->java,springmvc  
