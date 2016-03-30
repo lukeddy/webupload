@@ -4,11 +4,11 @@ jdk:
   - oraclejdk7
   - oraclejdk8
 
-script: mvn install
-
 branches:
   only:
   - webupload_v2
+
+script: mvn install
 
 notifications:
   email:
