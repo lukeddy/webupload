@@ -19,3 +19,11 @@ http://fex.baidu.com/webuploader/doc/index.html#WebUploader_Uploader_upload
 拖拽上传效果图：
 ![](https://github.com/tzq668766/screenshots/blob/master/webupload_screenshots/upload_tuozhuai.jpg)
 ![](https://github.com/tzq668766/screenshots/blob/master/webupload_screenshots/upload_tuozhuai2.jpg)
+
+
+分支：https://github.com/tzq668766/webupload/edit/webupload_v2/README.md 
+效果图：
+
+![](https://github.com/tzq668766/screenshots/blob/master/webupload_screenshots/webuploader_v2_1.jpg)
+
+![](https://github.com/tzq668766/screenshots/blob/master/webupload_screenshots/webuploader_v2_2.jpg)
