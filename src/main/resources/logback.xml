@@ -9,9 +9,9 @@
     <!-- 文件日志输出 -->
     <appender name="file" class="ch.qos.logback.core.rolling.RollingFileAppender">
         <Encoding>UTF-8</Encoding>
-        <File>/home/springmvc-webuploader.log</File>
+        <File>/tmp/springmvc-webuploader.log</File>
         <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
-            <FileNamePattern>/home/springmvc-webuploader-%d{yyyy-MM-dd}.log</FileNamePattern>
+            <FileNamePattern>/tmp/springmvc-webuploader-%d{yyyy-MM-dd}.log</FileNamePattern>
             <MaxHistory>30</MaxHistory>
             <TimeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
                 <MaxFileSize>50MB</MaxFileSize>
