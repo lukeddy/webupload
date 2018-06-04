@@ -16,3 +16,4 @@ target
 .idea/vcs.xml
 .idea/workspace.xml
 src/main/webapp/upload
+.idea
